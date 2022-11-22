@@ -1,37 +1,31 @@
-package exercise;
-//학생 : 학번, 이름, 전공, 전번
-//this 관련 예제
-public class Student {	
+package test1;
+
+//static 전역변수 관련
+
+public class Student {
+	private String name;
 	private int number;
-	private String name;	//인스턴스 멤버변수
-	private String major;
-	private String telNum;
-	
-	public Student(int number) {
-		super();
+	static int count = 0;
+	public Student() {}
+	public Student(String name, int number) {
+		this.name = name;
 		this.number = number;
+		Student.count++;		//static 변수는 무조건 메인 클래스를 지난다.
 	}
-	
-	public Student(int number, String name) {
-		//super();		//super와 this()와 같이 못쓴다.
-		this(number);	//매개변수가 number 하나인 애 불러와
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Student(int number, String name, String major) {
-		//super();
-		this(number, name);
-		this.major = major;
+	public int getNumber() {
+		return number;
 	}
-	
-	public Student(int number, String name, String major, String telNum) {
-		//super();
-		//this.number = number;
-		//this.name = name;
-		//this.major = major;
-		this(number, name, major);
-		this.telNum = telNum;
+	public void setNumber(int number) {
+		this.number = number;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", number=" + number + "]";
+	}
 }
